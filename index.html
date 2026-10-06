@@ -12,6 +12,29 @@
     />
 
     <style>
+        :root {
+            --easyday-primary: #7c3aed;
+            --easyday-primary-dark: #5b21b6;
+            --easyday-primary-light: #ede9fe;
+            --easyday-primary-soft: #f5f3ff;
+
+            --easyday-violet: #8b5cf6;
+            --easyday-pink: #ec4899;
+            --easyday-orange: #f59e0b;
+
+            --easyday-bg: #faf8ff;
+            --easyday-card: #ffffff;
+
+            --easyday-text: #211a2f;
+            --easyday-text-secondary: #6b6476;
+            --easyday-text-light: #9ca3af;
+
+            --easyday-border: #e9e5f5;
+
+            --easyday-shadow:
+                    0 18px 50px rgba(91, 33, 182, 0.12);
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -19,36 +42,123 @@
         body {
             margin: 0;
             min-height: 100vh;
+
             font-family: Arial, sans-serif;
-            background: #f7f7fb;
-            color: #1f2937;
+
+            color: var(--easyday-text);
+
+            background:
+                    radial-gradient(
+                            circle at top left,
+                            rgba(139, 92, 246, 0.16),
+                            transparent 35%
+                    ),
+                    radial-gradient(
+                            circle at top right,
+                            rgba(236, 72, 153, 0.12),
+                            transparent 30%
+                    ),
+                    radial-gradient(
+                            circle at bottom right,
+                            rgba(245, 158, 11, 0.10),
+                            transparent 30%
+                    ),
+                    var(--easyday-bg);
         }
 
         .container {
-            max-width: 960px;
+            max-width: 1180px;
             margin: 0 auto;
-            padding: 64px 24px 40px;
+            padding: 48px 24px 40px;
         }
 
         .hero {
+            max-width: 980px;
+            margin: 0 auto;
+
             text-align: center;
-            background: #ffffff;
-            border-radius: 28px;
-            padding: 56px 32px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
+
+            background: var(--easyday-card);
+
+            border: 1px solid var(--easyday-border);
+            border-radius: 30px;
+
+            padding: 64px 64px;
+
+            box-shadow: var(--easyday-shadow);
+        }
+
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-bottom: 24px;
+        }
+
+        .lang-btn {
+            border: 1px solid var(--easyday-border);
+
+            background: var(--easyday-primary-light);
+            color: var(--easyday-primary-dark);
+
+            padding: 9px 15px;
+
+            border-radius: 999px;
+
+            cursor: pointer;
+
+            font-weight: 700;
+
+            transition:
+                    background 0.15s ease,
+                    color 0.15s ease,
+                    transform 0.15s ease;
+        }
+
+        .lang-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .lang-btn.active {
+            background: var(--easyday-primary);
+            color: white;
+
+            border-color: var(--easyday-primary);
+        }
+
+        .lang {
+            display: none;
+        }
+
+        .lang.active {
+            display: block;
+        }
+
+        .logo {
+            width: 300px;
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 18px;
         }
 
         h1 {
             margin: 0;
-            color: #7c3aed;
-            font-size: 3rem;
+
+            color: var(--easyday-primary-dark);
+
+            font-size: 3.4rem;
         }
 
         .tagline {
             margin: 16px auto 0;
-            max-width: 620px;
-            color: #6b7280;
-            font-size: 1.2rem;
+
+            max-width: 680px;
+
+            color: var(--easyday-text-secondary);
+
+            font-size: 1.25rem;
             line-height: 1.6;
         }
 
@@ -56,34 +166,52 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+
             gap: 10px;
-            margin-top: 28px;
+
+            margin-top: 30px;
         }
 
         .feature {
-            background: #f3f0ff;
-            color: #6d28d9;
+            background: var(--easyday-primary-soft);
+            color: var(--easyday-primary-dark);
+
+            border: 1px solid var(--easyday-primary-light);
+
             border-radius: 999px;
-            padding: 10px 16px;
+
+            padding: 11px 18px;
+
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .buttons {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+
             gap: 14px;
-            margin-top: 36px;
+
+            margin-top: 38px;
         }
 
         .button {
             display: inline-block;
-            padding: 15px 22px;
+
+            padding: 16px 24px;
+
             border-radius: 14px;
+
             text-decoration: none;
+
             font-weight: 700;
-            transition: transform 0.15s ease;
+            font-size: 1rem;
+
+            transition:
+                    transform 0.15s ease,
+                    box-shadow 0.15s ease,
+                    background 0.15s ease;
         }
 
         .button:hover {
@@ -91,50 +219,83 @@
         }
 
         .primary {
-            background: #7c3aed;
+            background:
+                    linear-gradient(
+                            135deg,
+                            var(--easyday-primary),
+                            var(--easyday-violet)
+                    );
+
             color: white;
+
+            box-shadow:
+                    0 8px 20px rgba(124, 58, 237, 0.22);
         }
 
-        .secondary {
-            background: #ede9fe;
-            color: #6d28d9;
+        .primary:hover {
+            background:
+                    linear-gradient(
+                            135deg,
+                            var(--easyday-primary-dark),
+                            var(--easyday-primary)
+                    );
+
+            box-shadow:
+                    0 10px 24px rgba(91, 33, 182, 0.28);
         }
 
         .links {
             margin-top: 32px;
+
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+
             gap: 18px;
         }
 
         .links a {
-            color: #6b7280;
+            color: var(--easyday-text-secondary);
+
             text-decoration: none;
+
+            font-weight: 600;
+
+            transition: color 0.15s ease;
         }
 
         .links a:hover {
-            color: #7c3aed;
+            color: var(--easyday-primary);
         }
 
         footer {
             text-align: center;
-            margin-top: 32px;
-            color: #9ca3af;
+
+            margin-top: 28px;
+
+            color: var(--easyday-text-light);
+
             font-size: 0.85rem;
         }
 
         @media (max-width: 600px) {
+
             .container {
-                padding: 28px 16px;
+                padding: 20px 12px 28px;
             }
 
             .hero {
-                padding: 40px 20px;
+                padding: 32px 18px;
+                border-radius: 24px;
+            }
+
+            .logo {
+                width: 210px;
+                max-width: 90%;
             }
 
             h1 {
-                font-size: 2.3rem;
+                font-size: 2.5rem;
             }
 
             .tagline {
@@ -158,51 +319,139 @@
 
     <section class="hero">
 
-        <h1>EasyDay</h1>
+        <div class="lang-switch">
 
-        <p class="tagline">
-            Moins de charge mentale, plus de place pour ce qui compte.
-            Organisez vos tâches, vos routines et vos listes partagées simplement.
-        </p>
-
-        <div class="features">
-            <span class="feature">✓ Tâches</span>
-            <span class="feature">✓ Routines</span>
-            <span class="feature">✓ Listes partagées</span>
-            <span class="feature">✓ Rappels</span>
-        </div>
-
-        <div class="buttons">
-
-            <a
-                    class="button primary"
-                    href="https://apps.apple.com/fr/app/easyday-routine-tasks/id6785937721"
-                    target="_blank"
-                    rel="noopener noreferrer"
+            <button
+                    class="lang-btn active"
+                    onclick="showLang('fr', this)"
             >
-                Télécharger sur l’App Store
-            </a>
+                FR
+            </button>
 
-            <a
-                    class="button primary"
-                    href="https://play.google.com/store/apps/details?id=com.captngeek.easyday"
-                    target="_blank"
-                    rel="noopener noreferrer"
+            <button
+                    class="lang-btn"
+                    onclick="showLang('en', this)"
             >
-                Télécharger sur Google Play
-            </a>
+                EN
+            </button>
 
         </div>
 
-        <div class="links">
 
-            <a href="./help/">
-                Aide
-            </a>
+        <img
+                src="./assets/banniere.png"
+                alt="Logo EasyDay"
+                class="logo"
+        />
 
-            <a href="./privacy/">
-                Confidentialité
-            </a>
+
+        <!-- ================= FR ================= -->
+
+        <div id="fr" class="lang active">
+
+            <h1>EasyDay</h1>
+
+            <p class="tagline">
+                Moins de charge mentale, plus de place pour ce qui compte.
+                Organisez vos tâches, vos routines et vos listes partagées simplement.
+            </p>
+
+            <div class="features">
+                <span class="feature">✓ Tâches</span>
+                <span class="feature">✓ Routines</span>
+                <span class="feature">✓ Listes partagées</span>
+                <span class="feature">✓ Rappels</span>
+            </div>
+
+            <div class="buttons">
+
+                <a
+                        class="button primary"
+                        href="https://apps.apple.com/fr/app/easyday-routine-tasks/id6785937721"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    Télécharger sur l’App Store
+                </a>
+
+                <a
+                        class="button primary"
+                        href="https://play.google.com/store/apps/details?id=com.captngeek.easyday"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    Télécharger sur Google Play
+                </a>
+
+            </div>
+
+            <div class="links">
+
+                <a href="./help/">
+                    Aide
+                </a>
+
+                <a href="./privacy/">
+                    Confidentialité
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= EN ================= -->
+
+        <div id="en" class="lang">
+
+            <h1>EasyDay</h1>
+
+            <p class="tagline">
+                Less mental load, more room for what matters.
+                Organize your tasks, routines and shared lists with ease.
+            </p>
+
+            <div class="features">
+                <span class="feature">✓ Tasks</span>
+                <span class="feature">✓ Routines</span>
+                <span class="feature">✓ Shared lists</span>
+                <span class="feature">✓ Reminders</span>
+            </div>
+
+            <div class="buttons">
+
+                <a
+                        class="button primary"
+                        href="https://apps.apple.com/fr/app/easyday-routine-tasks/id6785937721"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    Download on the App Store
+                </a>
+
+                <a
+                        class="button primary"
+                        href="https://play.google.com/store/apps/details?id=com.captngeek.easyday"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                >
+                    Get it on Google Play
+                </a>
+
+            </div>
+
+            <div class="links">
+
+                <a href="./help/">
+                    Help
+                </a>
+
+                <a href="./privacy/">
+                    Privacy
+                </a>
+
+            </div>
+
         </div>
 
     </section>
@@ -212,6 +461,25 @@
     </footer>
 
 </main>
+
+
+<script>
+    function showLang(lang, button) {
+
+        document.querySelectorAll(".lang").forEach(el => {
+            el.classList.remove("active");
+        });
+
+        document.querySelectorAll(".lang-btn").forEach(el => {
+            el.classList.remove("active");
+        });
+
+        document.getElementById(lang).classList.add("active");
+        button.classList.add("active");
+
+        document.documentElement.lang = lang;
+    }
+</script>
 
 </body>
 </html>
